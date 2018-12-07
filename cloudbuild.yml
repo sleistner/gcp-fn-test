@@ -1,0 +1,9 @@
+steps:
+# 1. Fetch the source code
+- name: gcr.io/cloud-builders/git
+  args: ['clone', 'https://github.com/sleistner/gcp-fn-test.git']
+  
+# 2a. Set up GCS & BQ etc. using public terraform Docker image
+- name: hashicorp/terraform
+  args: ['init']
+  dir: 'terraform'
